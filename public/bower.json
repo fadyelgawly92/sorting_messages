@@ -1,0 +1,22 @@
+{
+  "name": "public",
+  "homepage": "https://github.com/fadyelgawly92/sorting_messages",
+  "authors": [
+    "fadyelgawly92 <fadyraafatelgawly@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "jquery": "^3.3.1"
+  }
+}
