@@ -18,7 +18,13 @@ class MessagesController extends Controller
     {
         $t = "\$t";   
         // dd($messages[0]->id->$t);
-        $messages = $this->messages->all();    
+        $messages = $this->messages->all(); 
+        
+        $config['center'] = 'Air Canada Centre , Toronto';
+        $config['zoom'] = '14';
+        $config['map_height'] = '500px';
+        // $config['map_width'] = '500px';
+        $config['scrollwheel'] = false;
 
         return view('messages.index' , compact('messages', 't'));
     }
