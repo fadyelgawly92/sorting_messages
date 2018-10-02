@@ -3,6 +3,7 @@
 use GuzzleHttp\Client;
 
 Route::get('/','MessagesController@index');
+Route::get('/map','MessagesController@map');
 
 Auth::routes();
 
