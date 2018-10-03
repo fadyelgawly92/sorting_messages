@@ -13,6 +13,7 @@ use PragmaRX\Countries\Package\Countries;
 
 
 
+
 class MessagesController extends Controller
 {
     protected $messages;
@@ -35,7 +36,7 @@ class MessagesController extends Controller
         return view('messages.index' , compact('messages', 't'));
     }
 
-    public function split()
+    public function split(Request $request)
     {
         $t = "\$t"; 
         $sentiment = array();
@@ -74,12 +75,12 @@ class MessagesController extends Controller
             $between = preg_replace('/(.*)message: (.*), sentiment:(.*)/sm', '\2', $string);
             array_push($info , $between);
         }
-
+        //data sorted
 
         //map data
         $marker = array();
         $config = array();
-        // $config['center'] = 'Cairo, Egypt';
+        $config['center'] = 'Cairo, Egypt';
         $config['zoom'] = '8';
         $config['map_height'] = '500px';
         // $config['map_width'] = '500px';
