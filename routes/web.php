@@ -2,7 +2,7 @@
 
 use GuzzleHttp\Client;
 
-Route::get('/','MessagesController@index');
+Route::get('/data','MessagesController@index');
 Route::get('/map','MessagesController@map');
 Route::get('/split','MessagesController@split');
 
