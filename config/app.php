@@ -153,6 +153,7 @@ return [
          */
 
         FarhanWazir\GoogleMaps\GMapsServiceProvider::class,
+        Igaster\LaravelCities\GeoServiceProvider::class,
         /*
          * Application Service Providers...
          */
