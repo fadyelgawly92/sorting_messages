@@ -33,15 +33,18 @@ class MessagesController extends Controller
     public function split()
     {
         $t = "\$t"; 
+        $sentiment = array();
+        $info = array();
         $messages = $this->messages->all();
         foreach($messages as $message){
             $string = $message->content->$t ;
             $result = preg_split('/sentiment:/',$string);
             if(count($result)>1){
                 $result_split = explode(' ',$result[1]);
-                print_r($result_split[1]);
-                echo '<br/>';
+                array_push($sentiment,$result_split[1]);
             }
+            $between = preg_replace('/(.*)message: (.*), sentiment:(.*)/sm', '\2', $string);
+            array_push($info , $between);
         }
     }
 
