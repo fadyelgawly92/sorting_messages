@@ -35,7 +35,7 @@ class MessagesController extends Controller
         return view('messages.index' , compact('messages', 't'));
     }
 
-    public function split(Request $request)
+    public function split()
     {
         $t = "\$t"; 
         $sentiment = array();
@@ -58,7 +58,7 @@ class MessagesController extends Controller
     {
         //array and sorting and messages data
         $t = "\$t"; 
-        $countries = ['Damascus', 'Mogadishu' , 'Ibiza' , 'Cairo, Egypt' , 'Tahrir, Cairo' , 'Nairobi', 'Kathmandu', 'Madrid, Spain' , 'Athens', 'Istanbul'];
+        $countries = ['Damascus, Syria', 'Mogadishu, Somalia' , 'Ibiza, Spain' , 'Cairo, Egypt' , 'Tahrir, Cairo' , 'Nairobi, Kenya', 'Kathmandu, Nepal', 'Madrid, Spain' , 'Athens, Greece', 'Istanbul, Turkey'];
         $sentiment = array();
         $info = array();
         $messages = $this->messages->all();
@@ -77,8 +77,8 @@ class MessagesController extends Controller
         //map data
         $marker = array();
         $config = array();
-        $config['center'] = 'Cairo, Egypt';
-        $config['zoom'] = '16';
+        // $config['center'] = 'Cairo, Egypt';
+        $config['zoom'] = '8';
         $config['map_height'] = '500px';
         // $config['map_width'] = '500px';
         $config['scrollwheel'] = false;
@@ -90,10 +90,13 @@ class MessagesController extends Controller
             $marker['position'] = $countries[$i];
             $marker['infowindow_content'] = $info[$i];
             if($sentiment[$i] == 'Positive'){
+                //red color
                 $marker['icon'] = 'http://maps.google.com/mapfiles/kml/paddle/red-blank.png';
             }elseif($sentiment[$i] == 'Neutral'){
+                //green color
                 $marker['icon'] = 'http://maps.google.com/mapfiles/kml/paddle/grn-blank.png';
             }else{
+                //blue color
                 $marker['icon'] = 'http://maps.google.com/mapfiles/kml/paddle/blu-blank.png';
             }
             $this->gmaps->add_marker($marker);
