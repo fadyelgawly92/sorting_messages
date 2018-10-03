@@ -51,7 +51,9 @@ class MessagesController extends Controller
             $between = preg_replace('/(.*)message: (.*), sentiment:(.*)/sm', '\2', $string);
             array_push($info , $between);
         }
-        $countries = Countries::where('name.common', 'Brazil');
+        // $countries = Countries::where('name.common', 'Brazil');
+        print_r($sentiment);
+        print_r($info);
     }
 
     public function map()
